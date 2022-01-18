@@ -1,0 +1,208 @@
+<div class="container register">
+  <div class="row">
+    <div class="col-md-3 register-left">
+      <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+      <h3>Welcome</h3>
+      <p>
+        Already Registered ? <br />
+        Login from Here !
+      </p>
+      <button class="btn btnLogin" type="button">
+        <a routerLink="/login">Login</a></button><br />
+      <div class="bottom-links">
+        <p style="margin-top: 20px">
+          <a routerLink="/" style="color: white !important">Go to Home Page</a>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-9 register-right">
+      <div class="tab-content" id="myTabContent">
+        <div
+          class="tab-pane fade show active"
+          id="home"
+          role="tabpanel"
+          aria-labelledby="home-tab">
+          <h3 class="register-heading">Register as a Employee</h3>
+          <form [formGroup]="registrationForm" (ngSubmit)="onSubmitRegistrationForm()">
+            <div class="row register-form">
+              <div class="col-md-6">
+                <!-- first name -->
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="First Name *"
+                    id="firstName"
+                    formControlName="firstName"
+                    name="firstName"
+                    />
+                </div>
+                <div *ngIf="registrationControll['firstName'].touched &&
+                  registrationControll['firstName'].invalid" style="color:
+                  red;">
+                  <div *ngIf="registrationControll['firstName'].errors &&
+                    registrationControll['firstName'].errors['required']">firstName
+                    is required.</div>
+
+                </div>
+
+                <!-- last name -->
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Last Name *"
+                    id="lastName"
+                    formControlName="lastName"
+                    name="lastName"
+                    />
+                </div>
+                <div *ngIf="registrationControll['lastName'].touched &&
+                  registrationControll['lastName'].invalid" style="color:
+                  red;">
+                  <div *ngIf="registrationControll['lastName'].errors &&
+                    registrationControll['lastName'].errors['required']">lastName
+                    is required.</div>
+                </div>
+
+                <!-- password -->
+                <div class="form-group">
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Password *"
+                    id="password"
+                    formControlName="password"
+                    name="password"
+                    />
+                </div>
+                <div *ngIf="registrationControll['password'].touched &&
+                  registrationControll['password'].invalid" style="color:
+                  red;">
+                  <div *ngIf="registrationControll['password'].errors &&
+                    registrationControll['password'].errors['required']">password
+                    is required.</div>
+                </div>
+
+                <!-- gender -->
+                <div class="form-group">
+                  <div class="maxl">
+                    <label class="radio inline">
+                      <input type="radio" name="gender" value="male"
+                        formControlName="gender"
+                        name="gender" />
+                      <span> Male </span>
+                    </label>
+                    <label class="radio inline" style="margin: 10px">
+                      <input type="radio" name="gender" value="female"
+                        formControlName="gender"
+                        name="gender" />
+                      <span> Female </span>
+                    </label>
+                  </div>
+                </div>
+                <div *ngIf="registrationControll['gender'].touched &&
+                  registrationControll['gender'].invalid" style="color:
+                  red;">
+                  <div *ngIf="registrationControll['gender'].errors &&
+                    registrationControll['gender'].errors['required']">gender
+                    is required.</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <!-- email -->
+                <div class="form-group">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your Email *"
+                    id="email"
+                    formControlName="email"
+                    name="email"
+                    />
+                </div>
+                <div *ngIf="registrationControll['email'].touched &&
+                  registrationControll['email'].invalid" style="color:
+                  red;">
+                  <div *ngIf="registrationControll['email'].errors &&
+                    registrationControll['email'].errors['required']">email
+                    is required.</div>
+                </div>
+
+                <!-- phone -->
+                <div class="form-group">
+                  <input
+                    type="number"
+                    minlength="10"
+                    maxlength="10"
+                    name="phone"
+                    class="form-control"
+                    placeholder="Your Phone *"
+                    id="phone"
+                    formControlName="phone"
+                    name="phone"
+                    />
+                </div>
+                <div *ngIf="registrationControll['phone'].touched &&
+                  registrationControll['phone'].invalid" style="color:
+                  red;">
+                  <div *ngIf="registrationControll['phone'].errors &&
+                    registrationControll['phone'].errors['required']">phone
+                    is required.</div>
+                </div>
+
+                <!-- sequrity question -->
+                <div class="form-group">
+                  <select id="sequrityQuestion"
+                    formControlName="sequrityQuestion"
+                    name="sequrityQuestion" class="form-control">
+                    <option class="hidden" selected value="" disabled>
+                      Please select your Sequrity Question
+                    </option>
+                    <option value="1">What is your Birthdate?</option>
+                    <option value="2">What is Your old Phone Number</option>
+                    <option value="3">What is your Pet Name?</option>
+                  </select>
+                </div>
+                <div *ngIf="registrationControll['sequrityQuestion'].touched &&
+                  registrationControll['sequrityQuestion'].invalid"
+                  style="color:
+                  red;">
+                  <div *ngIf="registrationControll['sequrityQuestion'].errors &&
+                    registrationControll['sequrityQuestion'].errors['required']">sequrityQuestion
+                    is required.</div>
+                </div>
+
+                <!-- answer of sequrity question -->
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Your Answer *"
+                    id="answerForSequrity"
+                    formControlName="answerForSequrity"
+                    name="answerForSequrity"
+                    />
+                </div>
+                <div *ngIf="registrationControll['answerForSequrity'].touched &&
+                  registrationControll['answerForSequrity'].invalid" style="color:
+                  red;">
+                  <div *ngIf="registrationControll['answerForSequrity'].errors &&
+                    registrationControll['answerForSequrity'].errors['required']">answerForSequrity
+                    is required.</div>
+                </div>
+
+
+                <button
+                  type="submit"
+                  class="btnRegister"
+
+                  [disabled]="registrationForm.invalid">Register</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

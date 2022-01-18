@@ -1,0 +1,17 @@
+<div *ngIf="loggedIn">
+    <div class="wrapper">
+        <app-sidebar></app-sidebar>
+        <div class="main-panel" style="height: 100vh;">
+            <app-header></app-header>
+            <div class="content" style="margin-top: 75px;">
+                <router-outlet></router-outlet>
+            </div>
+            <app-footer></app-footer>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="!loggedIn">
+    <router-outlet></router-outlet>
+</div>
