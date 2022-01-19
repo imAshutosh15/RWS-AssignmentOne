@@ -5,6 +5,8 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule ,  Routes} from "@angular/router";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
+// import { ToastrModule } from 'ngx-toastr';
 const entryRoutes  : Routes = [
   {
     path : "",
@@ -30,7 +32,9 @@ const entryRoutes  : Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild(entryRoutes)
+    RouterModule.forChild(entryRoutes),
+    NgxSpinnerModule,
+    
   ]
 })
 export class EntryModule { }

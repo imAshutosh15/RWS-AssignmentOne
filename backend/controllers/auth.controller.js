@@ -24,7 +24,7 @@ module.exports = {
                     if (result) {
                         res.status(200);
                         res.json({
-                            status: false,
+                            status: true,
                             subCode: 200,
                             message: 'User Registered Successfully',
                             error: "",
@@ -89,7 +89,7 @@ module.exports = {
                 } else {
                     res.status(200);
                     res.json({
-                        status: false,
+                        status: true,
                         subCode: 200,
                         message: 'Logged In Successfully',
                         error: '',

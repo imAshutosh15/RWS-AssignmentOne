@@ -7,7 +7,9 @@ import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { Routes , RouterModule } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 const routes: Routes = [
   {
     path: '',
@@ -35,8 +37,14 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
-    
-    NgbModule
+    HttpClientModule,
+    NgbModule,
+    NgxSpinnerModule,
+    ToastrModule.forRoot({
+      closeButton: true,
+      timeOut: 3000, // 3 seconds
+      progressBar: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,12 +8,6 @@ const app = express();
 //----------import dependencies end ---------------------------------------------
 
 
-//----------import local files start --------------------------------------------
-// const Response = require('./commons/response');
-// const Authenticate = require('./commons/auth');
-//----------import local files end ----------------------------------------------
-
-
 //----------mongodb connection start --------------------------------------------
 mongoose.connect("mongodb://localhost:27017/assignmentOne");
 const db = mongoose.connection;
@@ -37,8 +31,6 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static(process.cwd() + "/assignmentOne/dist/assignment-one/"));
 //----------use dependencies end ------------------------------------------------
-
-
 
 
 //----------route handler start -------------------------------------------------

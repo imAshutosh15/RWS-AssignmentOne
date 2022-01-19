@@ -21,6 +21,12 @@ exports.validateUser = (method) => {
                 body('password', 'Password is Required').not().isEmpty().trim().escape()
             ]
         }
+
+        case 'getProfile' : {
+            return [
+                param('userId', 'User ID is Required').not().isEmpty().trim().escape()
+            ]
+        }
        
     }
 }
