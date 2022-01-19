@@ -28,7 +28,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -37,6 +38,7 @@
               "src/assets/js/dashboard.js",
               "src/assets/js/dashboard.js.map",
               "src/assets/js/dashboard.min.js"
+
             ]
           },
           "configurations": {
@@ -44,14 +46,14 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
+                  "maximumWarning": "20mb",
+                  "maximumError": "25mb"
+              },
+              {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
+                  "maximumWarning": "20mb",
+                  "maximumError": "25mb"
+              }
               ],
               "fileReplacements": [
                 {

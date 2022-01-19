@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent {
   title = 'assignmentOne';
   loggedIn: boolean = false;
 
-  constructor(private router: Router){
+  constructor(private router: Router ,private SpinnerService: NgxSpinnerService){
 
   }
 
