@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
   constructor() { }
-
+  userType = false;
   ngOnInit(): void {
+    if (localStorage.getItem("userType") == "admin") {
+      this.userType = true;
+    }
   }
 
 }

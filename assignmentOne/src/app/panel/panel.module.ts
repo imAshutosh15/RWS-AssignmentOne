@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RouterModule ,  Routes} from "@angular/router";
 import { AuthGuard } from '../gaurds/auth.guard';
+import { UsersListComponent } from './users-list/users-list.component';
 
 
 const panelRoutes  : Routes = [
@@ -14,6 +15,10 @@ const panelRoutes  : Routes = [
   {
     path : "profile",
     component : ProfileComponent, canActivate : [AuthGuard]
+  },
+  {
+    path : "users-list",
+    component : UsersListComponent, canActivate : [AuthGuard]
   }
 ]
 
@@ -21,7 +26,8 @@ const panelRoutes  : Routes = [
 @NgModule({
   declarations: [
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    UsersListComponent
   ],
   imports: [
     CommonModule,

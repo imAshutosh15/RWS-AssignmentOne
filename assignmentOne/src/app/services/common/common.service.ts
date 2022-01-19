@@ -23,6 +23,15 @@ export class CommonService {
       )
   }
 
+  login(data:any) {
+    return this.http.post(this.rooturl + "login", data)
+      .pipe(
+        retry(1),
+        catchError((err) => {
+          return throwError(err);    //Rethrow it back to component
+        })
+      )
+  }
   // Error handling 
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';

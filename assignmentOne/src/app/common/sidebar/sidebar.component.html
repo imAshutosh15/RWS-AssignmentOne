@@ -21,6 +21,12 @@
             <p>Dashboard</p>
           </a>
         </li>
+        <li *ngIf="userType">
+          <a routerLink="/main/users-list">
+            <i class="nc-icon nc-diamond"></i>
+            <p>Users List</p>
+          </a>
+        </li>
         <li>
           <a routerLink="/main/profile">
             <i class="nc-icon nc-diamond"></i>
