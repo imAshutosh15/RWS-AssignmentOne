@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild } from '@angular/core';
 import { ToasterService } from '../../services/toaster/toaster.service';
 import { CommonService } from '../../services/common/common.service';
 import { NgxSpinnerService } from 'ngx-spinner';
