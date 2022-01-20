@@ -20,11 +20,11 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    if (localStorage.getItem("isLoggedIn")) {
-      this.router.navigate(['/main/dashboard'])
-    } else {
-      this.router.navigate(['/login'])
-    }
+    // if (localStorage.getItem("isLoggedIn")) {
+    //   this.router.navigate(['/main/dashboard'])
+    // } else {
+    //   this.router.navigate(['/login'])
+    // }
   }
 
   loginForm = new FormGroup({

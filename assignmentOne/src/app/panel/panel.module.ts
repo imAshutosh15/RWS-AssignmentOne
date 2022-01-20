@@ -5,7 +5,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RouterModule ,  Routes} from "@angular/router";
 import { AuthGuard } from '../gaurds/auth.guard';
 import { UsersListComponent } from './users-list/users-list.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const panelRoutes  : Routes = [
   {
@@ -31,7 +31,8 @@ const panelRoutes  : Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(panelRoutes)
+    RouterModule.forChild(panelRoutes),
+    NgxPaginationModule
   ]
 })
 export class PanelModule { }

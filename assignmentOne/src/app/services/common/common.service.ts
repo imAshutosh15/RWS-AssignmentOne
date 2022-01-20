@@ -13,7 +13,7 @@ export class CommonService {
 
   constructor(private http: HttpClient) { }
 
-  register(data:any) {
+  register(data: any) {
     return this.http.post(this.rooturl + "register", data)
       .pipe(
         retry(1),
@@ -23,7 +23,7 @@ export class CommonService {
       )
   }
 
-  login(data:any) {
+  login(data: any) {
     return this.http.post(this.rooturl + "login", data)
       .pipe(
         retry(1),
@@ -32,6 +32,17 @@ export class CommonService {
         })
       )
   }
+
+  usersList() {
+    return this.http.get(this.rooturl + "usersList")
+      .pipe(
+        retry(1),
+        catchError((err) => {
+          return throwError(err);    //Rethrow it back to component
+        })
+      )
+  }
+
   // Error handling 
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';

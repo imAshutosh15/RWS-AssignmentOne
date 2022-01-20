@@ -48,6 +48,7 @@ export class RegisterComponent implements OnInit {
         // this.message = result["message"];
         localStorage.setItem('isLoggedIn', "true");
         localStorage.setItem('userType', "user");
+        localStorage.setItem('id', result.items._id);
         this.toasterService.showSuccess(result.message, "Welcome to Dashboard")
 
         setTimeout(() => {

@@ -18,7 +18,6 @@ export class AppComponent {
   ngOnInit(): void {
     if (localStorage.getItem("isLoggedIn")) {
       this.loggedIn = true;
-      this.router.navigate(['/main/dashboard'])
     }    
   }
 }
