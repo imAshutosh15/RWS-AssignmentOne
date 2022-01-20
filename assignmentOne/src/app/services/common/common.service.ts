@@ -33,6 +33,16 @@ export class CommonService {
       )
   }
 
+  userProfile(data:any){
+    return this.http.get(this.rooturl + "profile/" + data)
+      .pipe(
+        retry(1),
+        catchError((err) => {
+          return throwError(err);    //Rethrow it back to component
+        })
+      )
+  }
+
   usersList() {
     return this.http.get(this.rooturl + "usersList")
       .pipe(

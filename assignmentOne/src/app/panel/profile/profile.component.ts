@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ToasterService } from '../../services/toaster/toaster.service';
+import { CommonService } from '../../services/common/common.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  userData : any;
+
+  constructor(private spinnerService: NgxSpinnerService, private toasterService: ToasterService, private commonService: CommonService) { }
 
   ngOnInit(): void {
+    this.commonService.userProfile(localStorage.getItem("id")).subscribe((result: any) => {
+      this.spinnerService.hide();
+      if (result.status == true) {        
+        this.userData = result.items;
+      }else{
+        this.toasterService.showError(result["message"], "Sorry!")
+      }
+    })
   }
 
 }
