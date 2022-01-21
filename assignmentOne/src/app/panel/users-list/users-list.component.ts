@@ -80,6 +80,11 @@ export class UsersListComponent implements OnInit {
 
   open(content: any, data: any) {
     this.userData = data;
+    userProfileForm = new FormGroup({
+    firstName: new FormControl(this.userData.firstName, Validators.required),
+    lastName: new FormControl(this.userData.lastName, Validators.required),
+    gender: new FormControl(this.userData.gender, Validators.required),
+  });
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
   }
 
