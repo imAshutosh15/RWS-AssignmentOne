@@ -49,9 +49,8 @@
           <div class="form-group">
             <input type="text" class="form-control"
               id="firstName"
-              formControlName="firstName"
-              [(ngModel)]="userData.firstName"
-              name="firstName" value="{{userData.firstName}}">
+              formControlName="firstName"              
+              name="firstName">
 
           </div>
           <div *ngIf="userProfileControll['firstName'].touched &&
@@ -74,10 +73,10 @@
         <div class="col-md-8">
           <div class="form-group">
             <input type="text" class="form-control"
-              [(ngModel)]="userData.lastName"              
+                            
               id="lastName"
               formControlName="lastName"
-              name="lastName" value="{{userData.lastName}}" >
+              name="lastName" >
           </div>
           <div *ngIf="userProfileControll['lastName'].touched &&
             userProfileControll['lastName'].invalid" style="color:
@@ -98,13 +97,13 @@
           <div class="form-group">
             <div class="maxl">
               <label class="radio inline">
-                <input type="radio" name="gender" value="Male"
+                <input type="radio" name="gender"
                   formControlName="gender"
                   name="gender" />
                 <span> Male </span>
               </label>
               <label class="radio inline" style="margin: 10px">
-                <input type="radio" name="gender" value="Female"
+                <input type="radio" name="gender"
                   formControlName="gender"
                   name="gender" />
                 <span> Female </span>
