@@ -1,120 +1,132 @@
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="container emp-profile">
-                <form method="post">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <!-- <div class="profile-img">
+<div class="row">
+    <div class="col-md-12">
+        <div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- <div class="profile-img">
                                 <img src="../../../assets/images/userprofile.png" alt=""/>
                                 <div class="file btn btn-lg btn-primary">
                                     Change Photo
                                     <input type="file" name="file"/>
                                 </div>
                             </div> -->
-                        </div>
-                        <div class="col-md-6">
-                            <div class="profile-head">
-                                        <h5>
-                                            {{userData.firstName}}  {{userData.lastName}}
-                                        </h5>
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab"  role="tab" aria-controls="home" aria-selected="true">About</a>
-                                    </li>
-                                   
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" class="profile-edit-btn" (click)="open(content)">Edit Profile</button>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                            <h5>
+                                {{userData.firstName}} {{userData.lastName}}
+                            </h5>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab"
+                                        data-toggle="tab" role="tab"
+                                        aria-controls="home"
+                                        aria-selected="true">About</a>
+                                </li>
 
-                            <!-- <input type="button" class="profile-edit-btn" data-toggle="modal" data-target="#myModal" value="Edit Profile"/> -->
+                            </ul>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <!-- <div class="profile-img">
+                    <div class="col-md-2">
+                        <button type="button" class="profile-edit-btn"
+                            (click)="open(content , {firstName : userData.firstName , lastName :
+                                userData.lastName , email : userData.email})">Edit Profile</button>
+
+                        <!-- <input type="button" class="profile-edit-btn" data-toggle="modal" data-target="#myModal" value="Edit Profile"/> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- <div class="profile-img">
                                 <img src="../../../assets/images/userprofile.png" alt=""/>
                                 <div class="file btn btn-lg btn-primary">
                                     Change Photo
                                     <input type="file" name="file"/>
                                 </div>
                             </div> -->
-                        </div>
-                        <div class="col-md-8">
-                            <div class="tab-content profile-tab" id="myTabContent">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>First Name</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>{{userData.firstName}}</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Last Name</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>{{userData.lastName}}</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Email</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>{{userData.email}}</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Phone</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>{{userData.phone}}</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Gender</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>{{userData.gender}}</p>
-                                                </div>
-                                            </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home"
+                                role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>First Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{userData.firstName}}</p>
+                                    </div>
                                 </div>
-                              
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Last Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{userData.lastName}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{userData.email}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Phone</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{userData.phone}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Gender</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{userData.gender}}</p>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
-                </form>           
-            </div>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
 
-    <!-- Modal -->
-   
+<!-- Modal -->
 
-  
-    <ng-template #content let-modal>
-        <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-          <button type="button" class="close btn btn-danger!important" aria-label="Close" (click)="modal.dismiss('Cross click')">
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button type="button" class="close btn btn-danger!important"
+            aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+        </button>
+    </div>
+    <form [formGroup]="userProfileForm"
+    (ngSubmit)="onSubmitProfileForm()">
+
         <div class="modal-body">
-          <form>
-            <div class="row  form-group">
+            <div class="row form-group">
                 <div class="col-md-6">
                     <label>First Name</label>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" value="{{userData.firstName}}">
+                    <input type="text" class="form-control"
+                    id="firstName"
+                    formControlName="firstName"              
+                    name="firstName">
                 </div>
             </div>
             <div class="row form-group">
@@ -122,21 +134,41 @@
                     <label>Last Name</label>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" value="{{userData.lastName}}">
+                    <input type="text" class="form-control"
+                    id="lastName"
+                    formControlName="lastName"
+                    name="lastName">
                 </div>
             </div>
-            <!-- <div class="row">
+            <div class="row">
                 <div class="col-md-6">
-                    <label>First Name</label>
+                    <label>Gender</label>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" value="{{userData.firstName}}">
+                    <div class="form-group">
+                        <div class="maxl">
+                            <label class="radio inline">
+                                <input type="radio" name="gender"
+                                    formControlName="gender"
+                                    name="gender"
+                                    value="Male" />
+                                <span> Male </span>
+                            </label>
+                            <label class="radio inline" style="margin: 10px">
+                                <input type="radio" name="gender"
+                                    formControlName="gender"
+                                    name="gender"
+                                    value="Female" />
+                                <span> Female </span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-            </div> -->
-          </form>
+            </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn" (click)="modal.close('Save click')">Save</button>
+            <button type="submit" class="btn">Save</button>
         </div>
-      </ng-template>
-      
+    </form>
+
+</ng-template>
