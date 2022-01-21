@@ -33,7 +33,7 @@ export class CommonService {
       )
   }
 
-  userProfile(data:any){
+  userProfile(data: any) {
     return this.http.get(this.rooturl + "profile/" + data)
       .pipe(
         retry(1),
@@ -53,6 +53,17 @@ export class CommonService {
       )
   }
 
+  updateProfile(data: any, userId: string) {
+    console.log(data);
+    
+    return this.http.post(this.rooturl + "profile/update/" + userId, data)
+      .pipe(
+        retry(1),
+        catchError((err) => {
+          return throwError(err);
+        })
+      )
+  }
   // Error handling 
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';

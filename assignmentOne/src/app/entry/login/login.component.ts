@@ -14,8 +14,6 @@ export class LoginComponent implements OnInit {
   constructor(private router : Router, private commonService : CommonService , private toasterService : ToasterService , private spinnerService : NgxSpinnerService) {
     if (localStorage.getItem("isLoggedIn")) {
       this.router.navigate(['/main/dashboard'])
-    } else {
-      this.router.navigate(['/login'])
     }
    }
 
@@ -35,31 +33,26 @@ export class LoginComponent implements OnInit {
   get loginControll() {
     return this.loginForm.controls;
   }
+
   onSubmitLoginForm() {
-    // console.warn(this.loginForm.value);
-    // localStorage.setItem('isLoggedIn', "true");
-    // localStorage.setItem('userType', "user");
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 100);
-    //     this.router.navigate(['/']);
+   
     this.spinnerService.show();
 
     this.commonService.login(this.loginForm.value).subscribe((result : any) => {
       
-      this.spinnerService.hide();      
-      console.log(result);
+      this.spinnerService.hide();    
       
       if (result.subCode == 200) {
         // this.message = result["message"];
         localStorage.setItem('isLoggedIn', "true");
         localStorage.setItem('userType',result.items.userType);
+        localStorage.setItem('id',result.items._id);
+        
+        this.router.navigate(['/main/dashboard'])
         this.toasterService.showSuccess(result.message, "Welcome to Dashboard")
-
         setTimeout(() => {
           window.location.reload();
-        }, 2000);
-        this.router.navigate(['/main/dashboard'])
+        }, 100);
       } else{
         this.toasterService.showError(result.message, "Sorry!")
         setTimeout(() => {

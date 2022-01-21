@@ -12,12 +12,10 @@ export class AppComponent {
   loggedIn: boolean = false;
 
   constructor(private router: Router ,private SpinnerService: NgxSpinnerService){
-
-  }
-
-  ngOnInit(): void {
     if (localStorage.getItem("isLoggedIn")) {
       this.loggedIn = true;
-    }    
+    }   
   }
+
+  ngOnInit(): void { }
 }

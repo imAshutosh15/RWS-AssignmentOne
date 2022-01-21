@@ -23,7 +23,7 @@ body{
     border: none;
     border-radius: 0;
     font-size: 15px;
-    background: #212529b8;
+    background: #0062cc;
 }
 .profile-img .file input {
     position: absolute;
@@ -32,7 +32,7 @@ body{
     top: 0;
 }
 .profile-head h5{
-    color: #333;
+    color: #0062cc;
 }
 .profile-head h6{
     color: #0062cc;
@@ -43,16 +43,16 @@ body{
     width: 70%;
     padding: 2%;
     font-weight: 600;
-    color: #6c757d;
+    color: #0062cc;
     cursor: pointer;
 }
 .proile-rating{
     font-size: 12px;
-    color: #818182;
+    color: #0062cc;
     margin-top: 5%;
 }
 .proile-rating span{
-    color: #495057;
+    color: #0062cc;
     font-size: 15px;
     font-weight: 600;
 }
@@ -73,13 +73,13 @@ body{
 }
 .profile-work p{
     font-size: 12px;
-    color: #818182;
+    color: #0062cc;
     font-weight: 600;
     margin-top: 10%;
 }
 .profile-work a{
     text-decoration: none;
-    color: #495057;
+    color: #0062cc;
     font-weight: 600;
     font-size: 14px;
 }

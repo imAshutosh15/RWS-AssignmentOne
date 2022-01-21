@@ -1,56 +1,131 @@
-<!-- <div>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Gender</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td >Larry the Bird</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
-</div> -->
 <div class="row">
-  <div class="col-4" *ngFor="let user of usersList | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count };">
-      <div class="card" style="width: 18rem;">
-          <!-- <a routerLink="/main/lead/{{user._id}}"><img src="assets/avatar-1.jpg" class="card-img-top" alt="..."></a> -->
-          <div class="card-body">
-              <h6 class="card-title"> Name : <span class="card-title">{{user.firstName}}  {{user.lastName}}</span></h6>
-              <h6 class="sub-cat">Email : <span>{{user.email}}</span></h6>
-              <h6 class="sub-cat">Phone : <span>{{user.phone}}</span></h6>
-              <h6 class="sub-cat">Gender : <span>{{user.gender}}</span></h6>
-             
-          </div>
+  <div class="col-4" *ngFor="let user of usersList | paginate : { itemsPerPage:
+    pageSize, currentPage: page, totalItems: count };">
+    <div class="card" style="width: 18rem;">
+      <!-- <a routerLink="/main/lead/{{user._id}}"><img src="assets/avatar-1.jpg" class="card-img-top" alt="..."></a> -->
+      <div class="card-body">
+        <h6 class="card-title"> Name : <span class="card-title">{{user.firstName}}
+            {{user.lastName}}</span></h6>
+        <h6 class="sub-cat">Email : <span>{{user.email}}</span></h6>
+        <h6 class="sub-cat">Phone : <span>{{user.phone}}</span></h6>
+        <h6 class="sub-cat">Gender : <span>{{user.gender}}</span></h6>
+        <button type="button" class="profile-edit-btn" (click)="open(content,
+          {userid :user._id ,firstName : user.firstName , lastName :
+          user.lastName , email : user.email , phone : user.phone , gender
+          :user.gender })">Edit Profile</button>
       </div>
+    </div>
   </div>
-  <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)" class="d-flex pagination-section justify-content-center"></pagination-controls>
+  <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true"
+    (pageChange)="handlePageChange($event)" class="d-flex pagination-section
+    justify-content-center"></pagination-controls>
 </div>
-  
+
+
+
+<!-- Modal -->
+
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close btn btn-danger!important"
+      aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form [formGroup]="userProfileForm"
+      (ngSubmit)="onSubmitProfileForm(userData.userid)">
+  <div class="modal-body">
+    
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <h5>First Name</h5>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="form-group">
+            <input type="text" class="form-control"
+              id="firstName"
+              formControlName="firstName"
+              [(ngModel)]="userData.firstName"
+              name="firstName" value="{{userData.firstName}}">
+
+          </div>
+          <div *ngIf="userProfileControll['firstName'].touched &&
+            userProfileControll['firstName'].invalid" style="color:
+            red;">
+            <div *ngIf="userProfileControll['firstName'].errors &&
+              userProfileControll['firstName'].errors['required']">firstName
+              is required.</div>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <h5>Last Name</h5>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div class="form-group">
+            <input type="text" class="form-control"
+              [(ngModel)]="userData.lastName"              
+              id="lastName"
+              formControlName="lastName"
+              name="lastName" value="{{userData.lastName}}" >
+          </div>
+          <div *ngIf="userProfileControll['lastName'].touched &&
+            userProfileControll['lastName'].invalid" style="color:
+            red;">
+            <div *ngIf="userProfileControll['lastName'].errors &&
+              userProfileControll['lastName'].errors['required']">lastName
+              is required.</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <h5>Gender</h5>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="form-group">
+            <div class="maxl">
+              <label class="radio inline">
+                <input type="radio" name="gender" value="Male"
+                  formControlName="gender"
+                  name="gender" />
+                <span> Male </span>
+              </label>
+              <label class="radio inline" style="margin: 10px">
+                <input type="radio" name="gender" value="Female"
+                  formControlName="gender"
+                  name="gender" />
+                <span> Female </span>
+              </label>
+            </div>
+          </div>
+          <div *ngIf="userProfileControll['gender'].touched &&
+            userProfileControll['gender'].invalid" style="color:
+            red;">
+            <div *ngIf="userProfileControll['gender'].errors &&
+              userProfileControll['gender'].errors['required']">gender
+              is required.</div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="submit" [disabled]="userProfileForm.invalid" class="btn
+      btn-primary">Save</button>
+  </div>
+</form>
+
+</ng-template>

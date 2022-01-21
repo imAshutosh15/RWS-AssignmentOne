@@ -6,6 +6,8 @@ import { RouterModule ,  Routes} from "@angular/router";
 import { AuthGuard } from '../gaurds/auth.guard';
 import { UsersListComponent } from './users-list/users-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const panelRoutes  : Routes = [
   {
@@ -32,7 +34,9 @@ const panelRoutes  : Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(panelRoutes),
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class PanelModule { }
