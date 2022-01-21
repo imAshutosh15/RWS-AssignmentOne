@@ -8,7 +8,7 @@ router.post('/login', validateUser('login'), authController.login);
 
 const profileController = require("../controllers/profile.controller");
 router.get('/profile/:userId', validateUser('getProfile'), profileController.getProfile);
-router.post('/profile/update/:userId', validateUser('updateProfile'), profileController.getProfile);
+router.post('/profile/update/:userId', validateUser('updateProfile'), profileController.updateProfile);
 
 const usersController = require("../controllers/users.controller");
 router.get('/usersList', usersController.usersList);

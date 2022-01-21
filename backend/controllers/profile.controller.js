@@ -64,7 +64,7 @@ module.exports = {
                     items: {}
                 });
             } else {
-                const profileUpdate = await userModel.updateOne(req.body , {_id : req.params.userId});
+                const profileUpdate = await userModel.findOneAndUpdate({_id : req.params.userId}, req.body);
                 if (!profileUpdate) {
                     res.status(200);
                     res.json({
@@ -81,11 +81,12 @@ module.exports = {
                         subCode: 200,
                         message: 'Profile Updated Successfully',
                         error: '',
-                        items: userProfile
+                        items: profileUpdate
                     });
                 }
             }
         } catch (error) {
+            console.log(error);
             res.status(200);
             res.json({
                 status: false,
